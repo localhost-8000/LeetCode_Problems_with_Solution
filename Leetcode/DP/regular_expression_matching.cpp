@@ -39,16 +39,32 @@ public:
         
         // check for rest characters....
         for(int i=1; i<=m; ++i) {
+            
+            // current pattern character...index represent pattern string till now..
             char pat = p[i-1];
+            
             for(int j=1; j<=n; ++j) {
+                
+                // current string character...index represent strnig till now
                 char ch = s[j-1];
+                
+                // if current chars matches...check for previous one..
                 if(pat == ch || pat == '.') {
                     dp[i][j] = dp[i-1][j-1];
                 }
+                
+                // if *...
                 else if(pat == '*') {
+                    // first check for two index above in pattern..like if "ab*" check if 'a' matches string
+                    // it means making b* as null..
                     if(dp[i-2][j] == 1) {
                         dp[i][j] = 1;
                     }
+                    
+                    // if not above..check for one index above in pattern, '.' is also included..as it can also replace any character..
+                    // ex. if pattern till now is ms* and string is msi, then "ms*" will become "mss*" and now check if 1st index i.e. 's'
+                    // matches last index of till now string..i.e. 'i'
+                    // if yes then check for if "ms*" matches "ms" ....
                     else if(ch == p[i-2] || p[i-2] == '.') {
                         dp[i][j] = dp[i][j-1];
                     }
