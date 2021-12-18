@@ -56,3 +56,30 @@ end for loop
 ```
 Time complexity = O(N)
 Space complexity = O(N)
+<hr />
+
+// More Optimized algorithm...
+```
+1. create stack st for storing indexes
+2. max_area = 0
+3. for every arr[i]:
+  1. curr_height = arr[i]
+  2. while st is not empty and arr[st.top()] >= curr_height:
+    height = arr[st.top()]
+    st.pop()
+    width = st.empty() ? i : i - st.top() - 1
+    curr_area = height * width
+    max_area = max(max_area, curr_area)
+  end while loop
+  3. st.push(i)
+end for loop
+
+4. while st is not empty:
+  height = arr[st.top()]
+  st.pop()
+  width = st.empty() ? n : n - st.top() - 1;
+  curr_area = height * width
+  max_area = max(max_area, curr_area)
+end while loop
+5. return max_area
+```
