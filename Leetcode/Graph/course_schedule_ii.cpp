@@ -55,3 +55,47 @@ public:
         return ans;
     }
 };
+
+// by counting indegrees approach...
+class Solution {
+public:
+    vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
+        int n = prerequisites.size();
+        vector<int> adj[numCourses];
+        
+        int indegree[numCourses];
+        memset(indegree, 0, sizeof(indegree));
+        
+        // create adjacency list...
+        for(const auto &arr : prerequisites) {
+            int u = arr[1];
+            int v = arr[0];
+            adj[u].push_back(v);
+            indegree[v]++;
+        }
+        
+        vector<int> ans;
+        queue<int> Q;
+        
+        for(int i=0; i<numCourses; ++i) {
+            if(indegree[i] == 0) Q.push(i);
+        }
+        
+        while(!Q.empty()) {
+            int curr_node = Q.front();
+            Q.pop();
+            ans.push_back(curr_node);
+            
+            for(int &neighbour : adj[curr_node]) {
+                indegree[neighbour]--;
+                
+                if(indegree[neighbour] == 0) Q.push(neighbour);
+            }
+        }
+        
+        if(ans.size() == numCourses) return ans;
+        ans.clear();
+        return ans;
+        
+    }
+};
