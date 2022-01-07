@@ -2,12 +2,12 @@
 
 class Solution {
 public:
-    bool isPossibleToMakeBouquets(long long day, vector<int>& bloomDay, int m, int k) {
+    bool isPossibleToMakeBouquets(int day, vector<int>& bloomDay, int m, int k) {
         int in_row = 0;
-        int n = bloomDay.size();
         
-        for(int i=0; i<n; ++i) {
-            if(bloomDay[i] <= day) {
+        for(const int &curr_day : bloomDay) {
+            
+            if(curr_day <= day) {
                 in_row++;
             } else {
                 in_row = 0;
@@ -22,19 +22,17 @@ public:
             if(m == 0) return true;
         }
         
-        return m == 0;
+        return false;
     }
     
     int minDays(vector<int>& bloomDay, int m, int k) {
-        int n = bloomDay.size();
-        
-        
+              
         int low = 1, high = 1e9;
         int ans = -1;
         
         
         while(low <= high) {
-            long long mid = low + (high - low) / 2;
+            int mid = low + (high - low) / 2;
        
             if(isPossibleToMakeBouquets(mid, bloomDay, m, k)) {
                 ans = mid;
