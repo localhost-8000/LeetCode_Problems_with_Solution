@@ -1,4 +1,2 @@
 # LeetCode Solution
-This repo contains solutions of the LeetCode problems.
-
-Questions are arranged topic wise.
+This repo contains the solutions of the Leetcode problems.
