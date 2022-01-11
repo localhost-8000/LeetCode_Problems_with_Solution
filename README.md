@@ -1,4 +1,4 @@
 # LeetCode Solution
-This repo contains solutions of the LeetCode problems that I'm solving on day - today basis.
+This repo contains solutions of the LeetCode problems.
 
 Questions are arranged topic wise.
