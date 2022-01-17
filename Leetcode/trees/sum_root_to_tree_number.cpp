@@ -22,6 +22,6 @@ public:
         if(root == nullptr) return 0;
         ans = 0;
         dfs(root, 0);
-        return ans;;
+        return ans;
     }
 };
