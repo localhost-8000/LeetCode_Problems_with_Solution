@@ -5,30 +5,21 @@ class Solution {
 public:
     int findMaxLength(vector<int>& nums) {
         int n = nums.size();
-        
-        for(int &num : nums) {
-            num = num == 0 ? -1 : num;
-        }
-        
+
         unordered_map<int, int> umap;
-        umap[nums[0]] = 0;
         umap[0] = -1;
         int ans = 0;
+        int cnt = 0;
         
-        for(int i=1; i<n; ++i) {
-            nums[i] += nums[i - 1];
-            int curr = nums[i];
-            
-            if(curr == 0) {
-                
-            }
-            if(umap.find(curr) != umap.end()) {
-                int diff = i - umap[curr];
+        for(int i=0; i<n; ++i) {
+            cnt += nums[i] == 1 ? 1 : -1;
+            if(umap.find(cnt) != umap.end()) {
+                int diff = i - umap[cnt];
                 ans = max(ans, diff);
                 continue;
             }
             
-            umap[curr] = i;
+            umap[cnt] = i;
         }
         
         return ans;
