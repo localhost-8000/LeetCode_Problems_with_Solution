@@ -1,6 +1,6 @@
 // Problem link:- https://leetcode.com/problems/wiggle-subsequence
 
-// Brute and dp approach:- 
+// Brute and dp approach:- https://github.com/Ankur-9598/LeetCode_Problems_with_Solution/edit/main/Leetcode/DP/wiggle_subsequence.cpp
 
 // Greedy approach..
 class Solution {
