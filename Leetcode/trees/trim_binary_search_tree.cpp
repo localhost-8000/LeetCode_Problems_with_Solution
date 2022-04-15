@@ -8,7 +8,7 @@ public:
         if(root == nullptr) return nullptr;
         
         int val = root->val;
-        TreeNode* new_node;
+
         if(val < low) return trimBST(root->right, low, high);
         else if(val > high) return trimBST(root->left, low, high);
         
