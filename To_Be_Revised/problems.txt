@@ -1,3 +1,7 @@
 1. Problem:- 132 Pattern
-  Link:- https://leetcode.com/problems/132-pattern
-  Difficulty:- Medium
+   Link:- https://leetcode.com/problems/132-pattern
+   Difficulty:- Medium
+  
+2. Problem:- Fruit into Baskets
+   Link:- https://leetcode.com/problems/fruit-into-baskets
+   Difficulty:- Medium
