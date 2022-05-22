@@ -26,3 +26,30 @@ public:
     }
 };
 
+// subarray with sum k approach..
+class Solution {
+public:
+    int subarrayWithSumK(vector<int>& nums, int k) {
+        unordered_map<int, int> umap;
+        int sum = 0, cnt = 0;
+        
+        for(int &num : nums) {
+            sum += num;
+            if(sum == k) cnt++;
+            if(umap.find(sum - k) != umap.end()) cnt += umap[sum - k];
+            
+            umap[sum]++;
+        }
+        
+        return cnt;
+    }
+    
+    int numberOfSubarrays(vector<int>& nums, int k) {
+       
+        for(int &num : nums) {
+            num = num & 1 ? 1 : 0;
+        }
+        
+        return subarrayWithSumK(nums, k);
+    }
+};
