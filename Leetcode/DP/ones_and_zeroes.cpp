@@ -43,3 +43,25 @@ public:
         return helper(pair_cnt, 0, m, n);
     }
 };
+
+// Another DP approach...O(n*m*k)
+class Solution {
+public: 
+    int findMaxForm(vector<string>& strs, int m, int n) {
+        int dp[m+1][n+1];
+        memset(dp, 0, sizeof(dp));
+        
+        for(string &bits : strs) {
+            int zeroes = count(bits.begin(), bits.end(), '0');
+            int ones = bits.length() - zeroes;
+            
+            for(int i=m; i>=zeroes; --i) {
+                for(int j=n; j>=ones; --j) {
+                    dp[i][j] = max(dp[i][j], dp[i-zeroes][j-ones] + 1);
+                }
+            }
+        }
+        
+        return dp[m][n];
+    }
+};
