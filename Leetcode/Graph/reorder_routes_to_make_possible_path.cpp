@@ -39,3 +39,41 @@ public:
         return ans;
     }
 };
+
+
+class Solution {
+    unordered_map<int, vector<int>> out, in;
+    int ans;
+public:
+    void dfs(int root, vector<bool>& visited) {
+        visited[root] = true;
+
+        for(int i: out[root]) {
+            if(!visited[i]) {
+                ans++;
+                dfs(i, visited);
+            }
+        }
+
+        for(int i: in[root]) {
+            if(!visited[i]) {
+                dfs(i, visited);
+            }
+        }
+    }
+    
+    int minReorder(int n, vector<vector<int>>& connections) { 
+        vector<bool> visited(n, false);
+        
+        ans = 0;
+
+        for(auto edge: connections) {
+            out[edge[0]].push_back(edge[1]);
+            in[edge[1]].push_back(edge[0]);
+        }
+
+        dfs(0, visited);
+        
+        return ans;
+    }
+};
