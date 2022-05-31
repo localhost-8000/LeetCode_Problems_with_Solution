@@ -5,3 +5,7 @@
 2. Problem:- Fruit into Baskets
    Link:- https://leetcode.com/problems/fruit-into-baskets
    Difficulty:- Medium
+   
+3. Problem:- As from from land as possible
+   Link:- https://leetcode.com/problems/as-far-from-land-as-possible
+   Difficulty:- Medium
