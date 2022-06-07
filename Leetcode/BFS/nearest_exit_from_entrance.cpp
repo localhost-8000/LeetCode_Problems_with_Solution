@@ -9,7 +9,6 @@ public:
         
         vector<vector<int>> arr(r, vector<int>(c, 100000));
         
-        int isEntrance = 0;
         queue<pair<int, int>> bfs;
         
         int ent_x = entrance[0], ent_y = entrance[1];
@@ -25,8 +24,6 @@ public:
             int x = bfs.front().first;
             int y = bfs.front().second;
             bfs.pop();
-            
-            if(maze[x][y] == '+' || (maze[x][y] == '#' && isEntrance++)) continue;
             
             for(int i=0; i<4; ++i) {
                 int xx = dirs[i][0] + x;
