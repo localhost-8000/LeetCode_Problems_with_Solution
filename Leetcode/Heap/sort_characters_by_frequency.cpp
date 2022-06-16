@@ -24,3 +24,27 @@ public:
         return s;
     }
 };
+
+// using frequency bucket..
+class Solution {
+public:
+    string frequencySort(string s) {
+        int n = s.length();
+        unordered_map<char, int> store;
+        
+        for(auto ch : s) store[ch]++;
+        
+        vector<char> freq[n + 1];
+        
+        for(auto [ch, count] : store) freq[count].push_back(ch);
+        
+        s = "";
+        
+        for(int i=n; i>0; --i) { 
+            for(auto ch : freq[i])
+                for(int cnt=i; cnt>0; --cnt) s += ch;
+        }
+        
+        return s;
+    }
+};
