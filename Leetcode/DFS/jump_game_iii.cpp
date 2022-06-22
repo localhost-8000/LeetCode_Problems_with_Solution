@@ -1,4 +1,4 @@
-// Problem link:- 
+// Problem link:- https://leetcode.com/problems/jump-game-iii/
 // Difficulty:- Medium
 
 class Solution {
@@ -35,5 +35,19 @@ public:
         vector<bool> visited(n, false);
         
         return canReachDestination(graph, arr, start, visited);
+    }
+};
+
+// cleaner and short code...
+class Solution {
+public:
+    bool canReach(vector<int>& arr, int start) {
+        int n = arr.size();
+        if(start < 0 || start >= n || arr[start] < 0) return false;
+        if(arr[start] == 0) return true;
+        
+        arr[start] *= -1;
+        
+        return canReach(arr, start + arr[start]) || canReach(arr, start - arr[start]);
     }
 };
