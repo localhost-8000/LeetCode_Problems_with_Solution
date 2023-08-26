@@ -1,4 +1,5 @@
 // Problem Link: https://leetcode.com/problems/maximum-length-of-pair-chain/description/
+// Difficulty: Medium
 
 // Optimal solution
 // TC: O(n * logn)  SC: O(1)
