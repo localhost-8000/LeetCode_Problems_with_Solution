@@ -37,3 +37,31 @@ public:
         return minTime;
     }
 };
+
+
+// Space Optimized solution
+// TC: O(n)  SC: O(1)
+class Solution {
+public:
+    int bestClosingTime(string customers) {
+        int n = customers.length();
+        int minTime = 0;
+        int minPenalty = 0;
+        int currPenalty = 0;
+
+        for (int i=0; i<n; ++i) {
+            if (customers[i] == 'Y') {
+                currPenalty -= 1;
+            } else {
+                currPenalty += 1;
+            }
+
+            if (currPenalty < minPenalty) {
+                minPenalty = currPenalty;
+                minTime = i + 1;
+            }
+        }
+
+        return minTime;
+    }
+};
